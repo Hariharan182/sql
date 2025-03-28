@@ -1,0 +1,20 @@
+-- Inserting customers
+INSERT INTO customers (customer_id, first_name, last_name, phone_number, email, address)
+VALUES (1, 'John', 'Doe', '555-1234', 'johndoe@example.com', '123 Main St, Cityville'),
+       (2, 'Jane', 'Smith', '555-5678', 'janesmith@example.com', '456 Oak Rd, Townsville');
+
+-- Inserting cars
+INSERT INTO cars (car_id, car_model, car_type, daily_rate, availability_status)
+VALUES (1, 'Toyota Corolla', 'Sedan', 30.00, 'Available'),
+       (2, 'Honda Civic', 'Sedan', 35.00, 'Available'),
+       (3, 'Ford Escape', 'SUV', 45.00, 'Not Available');
+
+-- Inserting bookings
+INSERT INTO bookings (booking_id, customer_id, car_id, rental_start_date, rental_end_date, total_cost)
+VALUES (1, 1, 1, '2025-03-28', '2025-03-30', 60.00),
+       (2, 2, 2, '2025-03-28', '2025-03-31', 105.00);
+
+-- Inserting transactions (payments)
+INSERT INTO transactions (transaction_id, booking_id, payment_date, amount, payment_status)
+VALUES (1, 1, '2025-03-28', 60.00, 'Paid'),
+       (2, 2, '2025-03-28', 105.00, 'Paid');
