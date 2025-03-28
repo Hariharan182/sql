@@ -1,0 +1,40 @@
+-- Table to store customer information
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    phone_number VARCHAR(15),
+    email VARCHAR(100),
+    address VARCHAR(255)
+);
+
+-- Table to store car information
+CREATE TABLE cars (
+    car_id INT PRIMARY KEY,
+    car_model VARCHAR(100),
+    car_type VARCHAR(50),
+    daily_rate DECIMAL(10, 2),
+    availability_status VARCHAR(20)
+);
+
+-- Table to store booking information
+CREATE TABLE bookings (
+    booking_id INT PRIMARY KEY,
+    customer_id INT,
+    car_id INT,
+    rental_start_date DATE,
+    rental_end_date DATE,
+    total_cost DECIMAL(10, 2),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (car_id) REFERENCES cars(car_id)
+);
+
+-- Table to store transaction information (payments)
+CREATE TABLE transactions (
+    transaction_id INT PRIMARY KEY,
+    booking_id INT,
+    payment_date DATE,
+    amount DECIMAL(10, 2),
+    payment_status VARCHAR(20),
+    FOREIGN KEY (booking_id) REFERENCES bookings(booking_id)
+);
